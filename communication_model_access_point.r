@@ -6,9 +6,9 @@
 
 # Simulation Parameters
 
-dev_power <- 60 # IoT device transmit power (mW)
-noise_power <- -100 # Noise Power (dB) (Symbol used sigma square in paper)
-W <- 20 # Wireless Channel Bandwidth (MHz)
+dev_power <- 100 ^ -3  # IoT device transmit power (mW)
+W <- 10 ^ 5 # Wireless Channel Bandwidth (MHz)
+noise_power <- (-174 + 10 * log10(W)) # Noise Power (dB) (Symbol used sigma square in paper)
 
 # Known/Calculated Parameters
 
