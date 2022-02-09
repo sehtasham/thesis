@@ -15,12 +15,12 @@
 # Tw_e is the task expected waiting time for the edge server
 
 # Simulation Parameters
-lambda <- 100 # task generation rate
-p_o <- 50 # percentage of the tasks that will be offloaded to the edge server
-L <- 8 # task size in bits
-v <- 1000 # number of CPU cycles required to process 1 bit data of task
-f_l <- 100 # CPU cycles per seconds of the IoT device
-f_e <- 100 # CPU cycles per seconds of the edge server
+lambda <- 0.1 # task generation rate
+p_o <- 0.1 # percentage of the tasks that will be offloaded to the edge server
+L <- 4 * 10 ^ 6 # task size in bits
+v <- 500 # number of CPU cycles required to process 1 bit data of task
+f_l <- 500 * 10 ^ 6 # CPU cycles per seconds of the IoT device
+f_e <- 10 * 10 ^ 9 # CPU cycles per seconds of the edge server
 
 # Function to calculate the task execution delay
 task_execution_delay <- function(L, v, f) {
