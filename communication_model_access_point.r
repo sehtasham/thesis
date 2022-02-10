@@ -5,10 +5,8 @@
 # R_ki is the maximum upload data rate between a device k and access point i
 
 # Simulation Parameters
-
-dev_power <- 100 ^ -3  # IoT device transmit power (mW)
-W <- 10 ^ 5 # Wireless Channel Bandwidth (MHz)
-noise_power <- (-174 + 10 * log10(W)) # Noise Power (dB) (Symbol used sigma square in paper)
+source("parameters.r")
+dev_power <- p_i
 
 # Known/Calculated Parameters
 

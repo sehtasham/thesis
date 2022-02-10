@@ -14,15 +14,7 @@
 # E_o is the energy cost incurred at an IoT device when it offloads a task
 # v is the number of CPU cycles required to process 1 bit data of task
 
-# Simulation Parameters
-C_e <- 10 ^ -25 # IoT Computation capability
-p_i <- 100 ^ -3  # IoT device transmit power (mW)
-D <- 4 * 10 ^ 6
-R <- 100 # to be calculated using different channel models
-f_l <- 500 * 10 ^ 6 # CPU cycles per seconds of the IoT device
-v <- 500 # number of CPU cycles required to process 1 bit data of task
-lambda <- seq(0.1, 0.7, by = 0.1) # task generation rate
-p_o <- seq(0.1, 0.7, by = 0.1) # percentage of the tasks that will be offloaded to the edge server
+source("parameters.r")
 
 # Function to calculate the time to offload a task
 time_to_offload_task <- function(D, R) {

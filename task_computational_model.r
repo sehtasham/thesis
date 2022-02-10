@@ -15,13 +15,7 @@
 # Tw_e is the task expected waiting time for the edge server
 # t_o is the transmission delay for a task that is offloaded to an edge server
 
-# Simulation Parameters
-lambda <- seq(0.1, 0.7, by = 0.01) # task generation rate
-p_o <- seq(0.1, 0.7, by = 0.01) # percentage of the tasks that will be offloaded to the edge server
-D <- 4 * 10 ^ 6 # task size in bits
-v <- 500 # number of CPU cycles required to process 1 bit data of task
-f_l <- 500 * 10 ^ 6 # CPU cycles per seconds of the IoT device
-f_e <- 10 * 10 ^ 9 # CPU cycles per seconds of the edge server
+source("parameters.r")
 
 # Function to calculate the task execution delay
 task_execution_delay <- function(D, v, f) {
