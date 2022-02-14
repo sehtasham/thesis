@@ -56,7 +56,7 @@ task_expected_waiting_time_device <- function(D, v, f_l, p_o, lambda) {
 
 # Function to calculate the task expected waiting time for the edge server
 task_expected_waiting_time_edge <- function(D, v, f_e, p_o, lambda) {
-    mew_e <- task_execution_delay(D, v, f_l)
+    mew_e <- task_execution_delay(D, v, f_e)
     lambda_e <- task_arrival_rate_edge(p_o, lambda)
     result <- task_expected_waiting_time(lambda_e, mew_e)
     return(result)
