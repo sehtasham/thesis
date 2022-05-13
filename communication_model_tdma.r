@@ -10,15 +10,15 @@
 # h is th channel gain from the transmitting IoT device to the edge server
 # sigma_2 is the variance of additive white Gaussian noise (AWGN)
 
-source("parameters.r")
-sigma_2 <- noise_power
-P_t <- p_i
+# source("parameters.r")
+# P_t <- p_i
+# h <- G
 
 # Function to calculate Upload Data Rate between device and SBS
-upload_data_rate_device_tdma <- function(W, sigma_2, h, P_t) {
-    tmp <- (P_t * (h ^ 2)) / sigma_2
+upload_data_rate_device_tdma <- function(W, noise_power, h, P_t) {
+    tmp <- (P_t * h) / noise_power  # Ask professor about updating this equation
     result <- W * log2(1 + tmp)
     return(result)
 }
 
-R_tdma <- upload_data_rate_device_tdma(W, sigma_2, h, P_t)
+# R_tdma <- upload_data_rate_device_tdma(W, noise_power, h, P_t)

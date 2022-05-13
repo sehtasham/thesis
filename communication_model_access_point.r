@@ -35,4 +35,5 @@ PL <- path_loss(d_km, N)
 R_ki <- upload_data_rate_device_ap(W, dev_power, noise_power, d_km, mean, sigma)
 
 # Plot Data
-plot(d_km, PL, main = "Path Loss Model")
+#plot(d_km, PL, main = "Path Loss Model")
+#print(R_ki)

@@ -24,13 +24,10 @@ uplink_channl_gain_device_uav <- function(alpha_0, L_UAV, L_i) {
 }
 
 # Function to calculate Upload Data Rate
-upload_data_rate_device_uav() <- function(W_i, p_i, noise_power,
+upload_data_rate_device_uav <- function(W_i, p_i, noise_power,
                                 alpha_0, L_UAV, L_i) {
     hi_UL <- uplink_channl_gain_device_uav(alpha_0, L_UAV, L_i)
     tmp <- (hi_UL * p_i) / noise_power
     result <- W_i * log2(1 + tmp)
     return(result)
 }
-
-Ri_UAV <- upload_data_rate_device_uav(W_i, p_i, noise_power,
-                                alpha_0, L_UAV, L_i)

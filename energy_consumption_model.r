@@ -14,7 +14,8 @@
 # v is the number of CPU cycles required to process 1 bit data of task
 # lambda is the task generation rate
 # p_o is the percentage of the tasks that will be offloaded to the edge server
-source("parameters.r")
+    
+#source("parameters.r")
 
 time_to_offload_task <- function(D, R) {
     result <- D / R
@@ -33,21 +34,18 @@ energy_cost_offload <- function(p_i, t_o, lambda, p_o) {
     return(result)
 }
 
-#outer_energy_cost_local <- function(lambda, p_o) {
-#energy_cost_local(C_e, L, f_l, v, D, lambda, p_o)
-#}
 
-t_o <- time_to_offload_task(D, R)
-E_l <- energy_cost_local(C_e, L, f_l, v, D, lambda, p_o)
-E_o <- energy_cost_offload(p_i, t_o, lambda, p_o)
 
-print(paste("Time to offload a task = ", t_o))
-print(paste("Energy cost incurred when a task is processed locally = ", E_l))
-print(paste("Energy cost incurred when offloading a task = ", E_o))
+# t_o <- time_to_offload_task(D, R)
+# E_l <- energy_cost_local(C_e, L, f_l, v, D, lambda, p_o)
+# E_o <- energy_cost_offload(p_i, t_o, lambda, p_o)
 
-#z <- outer(lambda, p_o, outer_energy_cost_local)
-#persp(lambda, p_o, z,
-#zlab = "E_l",
-#theta = 30, phi = 15,
-#col = "springgreen", shade = 0.5)
+# print(paste("Time to offload a task = ", t_o))
+# print(paste("Energy cost incurred when a task is processed locally = ", E_l))
+# print(paste("Energy cost incurred when offloading a task = ", E_o))
 
+# z <- outer(lambda, p_o, outer_energy_cost_local)
+# persp(lambda, p_o, z,
+# zlab = "E_l",
+# theta = 30, phi = 15,
+# col = "springgreen", shade = 0.5)

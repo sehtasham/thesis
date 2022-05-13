@@ -16,6 +16,9 @@
 # R_i0 is the Upload data rate between device and MBS
 
 
+d_km <- seq(0.1, 10, by = 0.1) # Sequence of distance in Km
+alpha <- 140 + 37.6 * log10(d_km)
+
 # Function to calculate numerator in upload data rate equation for MBS
 num_upload_data_rate_mbs <- function(p_i, h_i0, r_i0, alpha) {
   result <- p_i * h_i0 * (r_i0 ^ -alpha)

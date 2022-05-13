@@ -17,6 +17,14 @@
 # If we have data in the form of array,
 # the IDs can also be in the form of order number of data from the list
 
+B <- 10
+U <- 100
+noise_power <- 10 ^ -14
+W <- 5 * 10 ^ 6
+d_km <- seq(0.1, 10, by = 0.1) # Sequence of distance in Km
+alpha <- 140 + 37.6 * log10(d_km)
+
+
 # Function to calculate numerator in upload data rate equation
 num_upload_data_rate_sbs <- function(p_i, h_ij, r_ij, alpha) {
   result <- p_i * h_ij * (r_ij ^ -alpha)
