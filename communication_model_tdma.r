@@ -16,7 +16,7 @@
 
 # Function to calculate Upload Data Rate between device and SBS
 upload_data_rate_device_tdma <- function(W, noise_power, h, P_t) {
-    tmp <- (P_t * h) / noise_power  # Ask professor about updating this equation
+    tmp <- (P_t * h) / noise_power
     result <- W * log2(1 + tmp)
     return(result)
 }
