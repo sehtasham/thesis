@@ -19,7 +19,7 @@
 # Function to calculate the uplink channel gain from a device i to the UAV
 uplink_channl_gain_device_uav <- function(alpha_0, L_UAV, L_i) {
     di_UAV <- sqrt(sum((L_UAV - L_i) ^ 2))
-    result <- alpha_0 / di_UAV
+    result <- alpha_0 / (di_UAV  ^ 2)
     return(result)
 }
 
