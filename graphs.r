@@ -3,8 +3,8 @@
 create_3d_graph <- function(X, Y, FUNC, zlabel){
     Z <- outer(X, Y, FUNC)
     persp(X, Y, Z,
-    xlab = "Traffic Load (%)",
-    ylab = "Offloading Probability (%)",
+    xlab = "Traffic Load",
+    ylab = "Offloading Probability",
     zlab = "",
     theta = 30, phi = 0,
     ticktype = "detailed",

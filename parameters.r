@@ -14,3 +14,6 @@ W <- (10 ^ 5) # Wireless Channel Bandwidth (MHz)
 noise_power <- (-174 + 10 * log10(W)) #dbm
 sigma_2 <- noise_power ^ 2
 R <- 100 # to be calculated using different channel models
+
+# Code Parameters
+DEBUG <- TRUE

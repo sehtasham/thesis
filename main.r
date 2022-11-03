@@ -28,16 +28,16 @@ mean <- 0 # Mean
 d_km <- seq(0.1, 10, by = 0.1) # Sequence of distance in Km
 dev_power <- p_i_dbm
 R_ap <- upload_data_rate_device_ap(W, dev_power,
-                                noise_power, d_km[10], mean, sigma)
+                                noise_power, d_km[100], mean, sigma)
 to_ap <- time_to_offload_task(D, R_ap)
 
 # For communication model with UAV
 W_i <- W
 alpha_0 <- -50 #dB
-L_i <- c(500, 500, 0) #m
+L_i <- c(0, 0, 0) #m
 L_uav <- c(500, 500, 100) #m
-R_uav <- upload_data_rate_device_uav(W_i, p_i_mW, noise_power,
-                                alpha_0, L_uav, L_i)
+R_uav <- upload_data_rate_device_uav(W_i, p_i, dbm_to_watt(noise_power),
+                                dbm_to_watt(alpha_0), L_uav, L_i)
 to_uav <- time_to_offload_task(D, R_uav)
 
 
@@ -50,9 +50,16 @@ R_node <- upload_data_rate_device_node(W, dbm_to_watt(noise_power), h_i, P_i, th
 to_node <- time_to_offload_task(D, R_node)
 
 
-t_o <- to_ap
+t_o <- to_node
 print(R_ap)
 print(t_o)
+
+
+#print(expected_delay(D, v, p_o, f_l, f_e, t_o, 0.5))
+#print(energy_cost_local(C_e, L, f_l, v, D, 0.5, p_o))
+#print(energy_cost_offload(p_i, t_o, 0.5, p_o))
+
+
 
 outer_expected_delay <- function(lambda, p_o) {
 expected_delay(D, v, p_o, f_l, f_e, t_o, lambda)
