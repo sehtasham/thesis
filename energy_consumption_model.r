@@ -1,4 +1,4 @@
-# Energy Consumption Model model
+# Energy Consumption Model
 
 
 # Code Parameters

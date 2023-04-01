@@ -50,35 +50,90 @@ R_node <- upload_data_rate_device_node(W, dbm_to_watt(noise_power), h_i, P_i, th
 to_node <- time_to_offload_task(D, R_node)
 
 
-t_o <- to_node
+t_o <- to_ap
+print("Communication Model using AP")
 print(R_ap)
 print(t_o)
-
-
-#print(expected_delay(D, v, p_o, f_l, f_e, t_o, 0.5))
-#print(energy_cost_local(C_e, L, f_l, v, D, 0.5, p_o))
-#print(energy_cost_offload(p_i, t_o, 0.5, p_o))
-
-
 
 outer_expected_delay <- function(lambda, p_o) {
 expected_delay(D, v, p_o, f_l, f_e, t_o, lambda)
 }
-outer_energy_cost_local <- function(lambda, p_o) {
-energy_cost_local(C_e, L, f_l, v, D, lambda, p_o)
-}
+create_3d_graph(lambda, p_o, outer_expected_delay, "Expected Delay (s)")
+dev.copy(png,'plots/delay_ap.png')
+dev.off()
+
+
 outer_energy_cost_offload <- function(lambda, p_o) {
 energy_cost_offload(p_i, t_o, lambda, p_o)
 }
-#par(mfrow=c(1, 1))
+create_3d_graph(lambda, p_o, outer_energy_cost_offload, "Offload Energy Cost (J)")
+dev.copy(png,'plots/offload_ap.png')
+dev.off()
+
+t_o <- to_node
+print("Communication Model using Node")
+print(R_ap)
+print(t_o)
+
+outer_expected_delay <- function(lambda, p_o) {
+expected_delay(D, v, p_o, f_l, f_e, t_o, lambda)
+}
+create_3d_graph(lambda, p_o, outer_expected_delay, "Expected Delay (s)")
+dev.copy(png,'plots/delay_node.png')
+dev.off()
 
 
+outer_energy_cost_offload <- function(lambda, p_o) {
+energy_cost_offload(p_i, t_o, lambda, p_o)
+}
+create_3d_graph(lambda, p_o, outer_energy_cost_offload, "Offload Energy Cost (J)")
+dev.copy(png,'plots/offload_node.png')
+dev.off()
+
+t_o <- to_tdma
+print("Communication Model using TDMA")
+print(R_ap)
+print(t_o)
+
+outer_expected_delay <- function(lambda, p_o) {
+expected_delay(D, v, p_o, f_l, f_e, t_o, lambda)
+}
+create_3d_graph(lambda, p_o, outer_expected_delay, "Expected Delay (s)")
+dev.copy(png,'plots/delay_tdma.png')
+dev.off()
+
+
+outer_energy_cost_offload <- function(lambda, p_o) {
+energy_cost_offload(p_i, t_o, lambda, p_o)
+}
+create_3d_graph(lambda, p_o, outer_energy_cost_offload, "Offload Energy Cost (J)")
+dev.copy(png,'plots/offload_tdma.png')
+dev.off()
+
+t_o <- to_uav
+print("Communication Model using UAV")
+print(R_ap)
+print(t_o)
+
+outer_expected_delay <- function(lambda, p_o) {
+expected_delay(D, v, p_o, f_l, f_e, t_o, lambda)
+}
+create_3d_graph(lambda, p_o, outer_expected_delay, "Expected Delay (s)")
+dev.copy(png,'plots/delay_uav.png')
+dev.off()
+
+
+outer_energy_cost_offload <- function(lambda, p_o) {
+energy_cost_offload(p_i, t_o, lambda, p_o)
+}
+create_3d_graph(lambda, p_o, outer_energy_cost_offload, "Offload Energy Cost (J)")
+dev.copy(png,'plots/offload_uav.png')
+dev.off()
+    
+
+outer_energy_cost_local <- function(lambda, p_o) {
+energy_cost_local(C_e, L, f_l, v, D, lambda, p_o)
+}
 create_3d_graph(lambda, p_o, outer_energy_cost_local, "Local Energy Cost (J)")
 dev.copy(png,'plots/local.png')
-dev.off()
-create_3d_graph(lambda, p_o, outer_energy_cost_offload, "Offload Energy Cost (J)")
-dev.copy(png,'plots/offload.png')
-dev.off()
-create_3d_graph(lambda, p_o, outer_expected_delay, "Expected Delay (s)")
-dev.copy(png,'plots/delay.png')
 dev.off()
